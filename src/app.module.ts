@@ -4,11 +4,12 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
+import { Course } from './course/entities/course.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CourseModule } from './course/course.module';
 
 @Module({
   imports: [
-    UserModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: 'src/.env',
@@ -24,7 +25,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           database: configService.get('mysql_server_database'),
           synchronize: true,
           logging: true,
-          entities: [User],
+          entities: [User, Course],
           poolSize: 10,
           connectorPackage: 'mysql2',
           extra: {
@@ -34,6 +35,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       },
       inject: [ConfigService],
     }),
+    UserModule,
+    CourseModule,
   ],
   controllers: [AppController],
   providers: [AppService],

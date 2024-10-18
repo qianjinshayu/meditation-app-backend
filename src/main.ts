@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe()); // 注册全局请求校验管道
   app.useGlobalInterceptors(new FormatResponseInterceptor()); // 注册全局请求成功返回拦截器
   app.useGlobalFilters(new HttpExceptionFilter()); // 注册全局请求错误过滤器
-
+  app.enableCors(); // 启用跨域支持
   const configService = app.get(ConfigService); // 配置抽离，从配置文件读取配置信息
   await app.listen(configService.get('nest_server_port'));
 }

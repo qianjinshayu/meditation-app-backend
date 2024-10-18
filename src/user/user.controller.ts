@@ -11,7 +11,7 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ListUserDto } from './dto/list-user.dto';
+import { PaginationUserDto } from './dto/pagination-user.dto';
 
 @Controller('user')
 export class UserController {
@@ -23,8 +23,8 @@ export class UserController {
   }
 
   @Get()
-  findAll(@Query() listUserDto: ListUserDto) {
-    console.log('listUserDto', listUserDto);
+  findAll(@Query() paginationUserDto: PaginationUserDto) {
+    console.log('paginationUserDto', paginationUserDto);
     return this.userService.findAll();
   }
 
