@@ -7,6 +7,9 @@ import { User } from './user/entities/user.entity';
 import { Course } from './course/entities/course.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CourseModule } from './course/course.module';
+import { JwtModule } from '@nestjs/jwt';
+import { APP_GUARD } from '@nestjs/core';
+import { LoginGuard } from './common/guard/login.guard';
 
 @Module({
   imports: [
@@ -35,10 +38,24 @@ import { CourseModule } from './course/course.module';
       },
       inject: [ConfigService],
     }),
+    JwtModule.register({
+      global: true,
+      secret: 'qianjinshayu',
+      signOptions: {
+        expiresIn: '7d',
+      },
+    }),
     UserModule,
     CourseModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    // 全局启用登录路由守卫
+    {
+      provide: APP_GUARD,
+      useClass: LoginGuard,
+    },
+  ],
 })
 export class AppModule {}

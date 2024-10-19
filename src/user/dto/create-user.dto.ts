@@ -4,5 +4,5 @@ export class CreateUserDto {
   @IsNotEmpty({
     message: '用户名称不能为空',
   })
-  name: string;
+  nickName: string;
 }
