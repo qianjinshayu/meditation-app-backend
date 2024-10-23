@@ -1,85 +1,90 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Meditation App
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### 介绍
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Meditation App 是一个冥想类应用，个人全栈练手小项目。前端基于 Uniapp、Vue3、TypeScript、Unocss 实现，支持 H5 与微信小程序，后端基于 NestJS + TypeORM + TypeScript + MySql 实现
 
-## Description
+### 代码仓库
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- 前端：https://github.com/qianjinshayu/meditation-app
+- 后端：https://github.com/qianjinshayu/meditation-app-backend
 
-## Project setup
+### 项目功能
 
-```bash
-$ pnpm install
+- 探索
+  - [x] 冥想课程推荐列表
+  - [x] 冥想课程详情页
+  - [x] 播放页
+  - [ ] 分类筛选页
+- 练习
+  - [ ] 我参加的练习
+- 我的
+  - [ ] 用户信息
+  - [ ] 数据统计
+- 登录功能
+  - [x] 微信小程序登录
+  - [ ] H5 登录
+  - [ ] 登录页
+
+目前项目处于开发初期，新功能正在持续添加中，如果你对该项目有任何问题与建议，欢迎在 Issues 中提出！
+
+### 安装使用步骤
+
+- **Clone：**
+
+```text
+# 前端
+git clone git@github.com:qianjinshayu/meditation-app.git
+
+# 后端
+git clone git@github.com:qianjinshayu/meditation-app-backend.git
 ```
 
-## Compile and run the project
+- **Install：**
 
-```bash
-# development
-$ pnpm run start
+```text
+# 前端
+pnpm install
 
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+# 后端
+pnpm install
 ```
 
-## Run tests
+后端项目需要在 src 目录下新建 .env 配置文件，填入相关配置信息
 
-```bash
-# unit tests
-$ pnpm run test
+```
+# nest 服务配置
+nest_server_port=3000
 
-# e2e tests
-$ pnpm run test:e2e
+# mysql 相关配置
+mysql_server_host=localhost
+mysql_server_port=3306
+mysql_server_username=root
+mysql_server_password=
+mysql_server_database=meditation
 
-# test coverage
-$ pnpm run test:cov
+# 微信小程序配置
+wechat_appid=
+wechat_secret=
 ```
 
-## Resources
+- **Run：**
 
-Check out a few resources that may come in handy when working with NestJS:
+```text
+# 前端
+# 微信小程序
+pnpm run dev:mp-weixin
+# H5
+pnpm run dev:h5
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+# 后端
+pnpm run start:dev
+```
 
-## Support
+### 项目截图
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+<img width="300px" src="https://course-service-oss.oss-cn-shanghai.aliyuncs.com/avatar/Snipaste_2024-10-23_23-13-03.png" />
 
-## Stay in touch
+<img width="300px" src="https://course-service-oss.oss-cn-shanghai.aliyuncs.com/avatar/Snipaste_2024-10-23_23-13-20.png" />
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+<img width="300px" src="https://course-service-oss.oss-cn-shanghai.aliyuncs.com/avatar/Snipaste_2024-10-23_23-13-39.png" />
