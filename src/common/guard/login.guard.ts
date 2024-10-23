@@ -19,6 +19,12 @@ export class LoginGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request: Request = context.switchToHttp().getRequest();
 
+    /** 白名单 */
+    const whiteList = ['/course/init'];
+    if (whiteList.includes(request.url)) {
+      return true;
+    }
+
     const authorization = request.header('authorization') || '';
 
     const bearer = authorization.split(' ');

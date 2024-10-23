@@ -41,6 +41,14 @@ export class CourseController {
     return this.courseService.findOne(+id);
   }
 
+  /**
+   * 初始化一些冥想课程数据
+   */
+  @Get('init')
+  initData() {
+    return this.courseService.initData();
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
     return this.courseService.update(+id, updateCourseDto);
